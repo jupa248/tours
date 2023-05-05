@@ -1,15 +1,17 @@
 import Tour from "./Tour";
 
-const Tours = ({ tours }) => {
-  console.log(tours);
+const Tours = ({ tours, removeTour }) => {
   return (
     <section className="tours">
-      {tours.map((tour) => {
-        const { id, image, info, name, price } = tour;
-        return (
-          <Tour key={id} image={image} info={info} price={price} name={name} />
-        );
-      })}
+      <div className="title">
+        <h2>our tours</h2>
+        <div className="title-underline"></div>
+      </div>
+      <div className="tours">
+        {tours.map((tour) => {
+          return <Tour key={tour.id} {...tour} removeTour={removeTour} />;
+        })}
+      </div>
     </section>
   );
 };
